@@ -1,7 +1,6 @@
 import aiohttp
 import asyncio
 import platform
-import pprint
 import sys
 import datetime
 
@@ -23,8 +22,8 @@ class Connect_To:
                 for currency in exchange_list:
                     if currency["currency"] in ("USD", "EUR"):
                         result[str(day)][currency["currency"]] = {
-                            "sale": f'{currency["saleRateNB"]:0.1f}',
-                            "purchase": f'{currency["purchaseRateNB"]:0.1f}',
+                            "sale": f'{currency["saleRate"]:0.2f}',
+                            "purchase": f'{currency["purchaseRate"]:0.2f}',
                         }
 
         except aiohttp.ClientConnectorError as err:
